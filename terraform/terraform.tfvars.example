@@ -1,0 +1,2 @@
+account_id        = "your_cloudflare_account_id"
+workers_subdomain = "your_workers_dev_subdomain"

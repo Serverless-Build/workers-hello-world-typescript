@@ -1,0 +1,82 @@
+slug: hello-world-worker
+title: Hello World Worker
+goal: "Four language entry points · one deterministic response · no bindings"
+theme: workers-warm
+actors:
+  - id: hello-client
+    label: HTTP client
+    type: user
+    description: Any method, path, headers, or body
+    lane: actors
+    order: 0
+products:
+  - id: hello-worker
+    resourceId: workers
+    label: hello-world Worker
+    description: selected language entry point returns a constant text response
+    lane: stage-1
+    order: 0
+    badges:
+      - one request handler
+      - no bindings
+components:
+  - id: hello-response
+    label: Delivered response
+    kind: response
+    description: "200 · text/plain · Cache-Control: no-store"
+    icon: response
+    lane: stage-2
+    order: 0
+    badges:
+      - constant body
+lanes:
+  - id: actors
+    label: Request origin
+    order: 0
+  - id: stage-1
+    label: Stage 1
+    order: 1
+  - id: stage-2
+    label: Stage 2
+    order: 2
+boundaries:
+  - id: cloudflare-developer-platform
+    label: Cloudflare Developer Platform
+    type: platform
+    contains:
+      - hello-worker
+primaryFlows:
+  - id: flow-01
+    path:
+      - hello-client
+      - hello-worker
+    label: |-
+      HTTPS
+      request
+    type: request
+  - id: flow-02
+    path:
+      - hello-worker
+      - hello-response
+    label: |-
+      200 OK
+      text response
+    type: response
+callouts:
+  - step: 1
+    anchorTo: hello-client
+    text: "Every route is accepted: The handler never inspects the URL, method, headers, or request body."
+  - step: 2
+    anchorTo: hello-worker
+    text: "One runtime entry point: JS/TS use a module handler, Python uses WorkerEntrypoint, and Rust compiles to WebAssembly."
+  - step: 3
+    anchorTo: hello-response
+    text: "Explicitly uncacheable: The response sets text/plain UTF-8 and Cache-Control: no-store."
+  - step: 4
+    anchorTo: hello-response
+    text: "No background work: No persistence, scheduled event, queue, waitUntil task, or downstream API."
+caption: Any HTTP request invokes one fetch handler and receives the same no-store text response.
+export:
+  callouts: true
+  caption: true
+  title: true

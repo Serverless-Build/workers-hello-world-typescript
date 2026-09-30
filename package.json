@@ -1,0 +1,25 @@
+{
+  "name": "workers-hello-world-typescript",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --config wrangler.jsonc",
+    "deploy": "wrangler deploy --config wrangler.jsonc",
+    "check": "tsc --noEmit && wrangler deploy --dry-run --config wrangler.jsonc",
+    "cf:build": "tsc --noEmit && cf build",
+    "cf:check": "tsc --noEmit && cf deploy --dry-run",
+    "cf:deploy": "tsc --noEmit && cf deploy"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "2.0.0-beta.sha-ad79608dd",
+    "@cloudflare/workers-types": "^5.20260929.1",
+    "cf": "^1.0.0-beta.5",
+    "typescript": "^7.0.2",
+    "vite": "8.3.1",
+    "wrangler": "^4.144.0"
+  },
+  "overrides": {
+    "undici": "^7.30.0"
+  }
+}
