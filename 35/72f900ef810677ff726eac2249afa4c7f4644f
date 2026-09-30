@@ -1,0 +1,41 @@
+cloudflare.config.ts
+  s_6adf70a5c4be33::t_cf45b88f9b7a75 1-15
+docs/architecture/hello-world-worker.svg
+  s_6adf70a5c4be33::t_09cfc853db1dc2 1-115
+docs/architecture/hello-world-worker.yaml
+  s_6adf70a5c4be33::t_ec73e84560d844 1-82
+package-lock.json
+  s_6adf70a5c4be33::t_100e25da5fe9a8 1-2846
+terraform/.terraform.lock.hcl
+  s_6adf70a5c4be33::t_f27b145adfd907 1-19
+tsconfig.json
+  s_6adf70a5c4be33::t_88d4850e351f80 1-13
+vite.config.ts
+  s_659550811530fe::t_df96e50aed6b2d 1-6
+wrangler.jsonc
+  s_6adf70a5c4be33::t_1c0dde94891c03 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3572f900ef810677ff726eac2249afa4c7f4644f",
+  "prompts": {},
+  "sessions": {
+    "s_659550811530fe": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f1b0bda3fffe3rykqJ8dw4q3N6",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "gryczka <pgryczka@cloudflare.com>"
+    },
+    "s_6adf70a5c4be33": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f1071b21affeDvkK7ZvYdqVrAw",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "gryczka <pgryczka@cloudflare.com>"
+    }
+  }
+}
